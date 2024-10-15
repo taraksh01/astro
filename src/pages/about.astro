@@ -1,3 +1,27 @@
+---
+const pageTitle = "About me";
+const identity = {
+  firstName: "Tarak",
+  lastName: "Shaw",
+  country: "Bharat",
+  hobbies: ["coding", "yoga", "hiking", "reading"],
+};
+
+const skills = [
+  "HTML",
+  "CSS",
+  "JavaScript",
+  "Astro",
+  "React",
+  "Fooling people",
+  "Copy & Paste 😁",
+];
+
+const happy = true;
+const finished = false;
+const goal = 3;
+---
+
 <!doctype html>
 <html lang="en">
   <head>
@@ -5,13 +29,13 @@
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
     <meta name="viewport" content="width=device-width" />
     <meta name="generator" content={Astro.generator} />
-    <title>About</title>
+    <title>{pageTitle}</title>
   </head>
   <body>
     <a href="/">Home</a>
     <a href="/about/">About</a>
     <a href="/blog/">Blog</a>
-    <h1>About</h1>
+    <h1>{pageTitle}</h1>
     <h2>... and my new Astro site.</h2>
 
     <p>
@@ -19,6 +43,44 @@
       on my website, and it's the first one I built myself!
     </p>
 
-    <p>This page will udpate as i complete more of the tutorial</p>
+    <p>Here are a few facts about me:</p>
+    <ul>
+      <li>My name is {identity.firstName}.</li>
+      <li>I live in {identity.country}.</li>
+      {
+        identity.hobbies.length >= 2 && (
+          <li>
+            Two of my hobbies are: {identity.hobbies[0]} and{" "}
+            {identity.hobbies[1]}.
+          </li>
+        )
+      }
+      <li>
+        Some of My skills are: {
+          skills.map((skill) => (
+            <span style="color: orange; font-weight: bold; padding: 2px; margin:2px; background-color: #111">
+              {skill}
+            </span>
+          ))
+        }
+      </li>
+    </ul>
+    <p>
+      Now go build something great. You may want to use <a
+        href="https://astro.build/">Astro</a
+      >.
+    </p>
+
+    {happy && <p>I am happy to be learning Astro!</p>}
+
+    {finished && <p>I finished this tutorial!</p>}
+
+    {
+      goal === 3 ? (
+        <p>My goal is to finish in 3 days. Why? Because i love {goal} 🙃</p>
+      ) : (
+        <p>My goal is not 3 days.</p>
+      )
+    }
   </body>
 </html>
