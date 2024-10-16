@@ -20,7 +20,7 @@ const skills = [
 ];
 
 const happy = true;
-const finished = false;
+const finished = true;
 const goal = 3;
 
 const skillColor = "orange";
@@ -56,12 +56,16 @@ const textCase = "capitalize";
   </ul>
 
   {happy && <p>I am happy to be learning Astro!</p>}
-  {finished && <p>I finished this tutorial!</p>}
   {
     goal === 3 ? (
       <p>My goal is to finish in 3 days. Why? Because i love {goal} 🙃</p>
     ) : (
       <p>My goal is not 3 days.</p>
+    )
+  }
+  {
+    finished && (
+      <p>I finished this tutorial just 2 days (not in {goal} days)! 🥳</p>
     )
   }
   <p>

@@ -3,6 +3,15 @@ html {
   font-family: sans-serif;
 }
 
+html.dark {
+  background-color: #111;
+  color: #fff;
+}
+
+.dark .nav-links a {
+  color: #fff;
+}
+
 body {
   margin: 0 auto;
   width: 100%;
@@ -19,6 +28,11 @@ h1 {
   margin: 1rem 0;
   font-size: 1.5rem;
   text-align: center;
+}
+
+button {
+  cursor: pointer;
+  padding: 0.5rem 1rem;
 }
 
 /* nav styles */
