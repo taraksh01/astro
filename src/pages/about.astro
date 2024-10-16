@@ -1,6 +1,5 @@
 ---
-import Header from "../components/Header.astro";
-import "../styles/global.css";
+import BaseLayout from "../layout/BaseLayout.astro";
 
 const pageTitle = "About me";
 const identity = {
@@ -16,8 +15,8 @@ const skills = [
   "JavaScript",
   "Astro",
   "React",
-  "Fooling people",
   "Copy & Paste 😁",
+  "Fooling people",
 ];
 
 const happy = true;
@@ -29,75 +28,62 @@ const fontWeight = "bold";
 const textCase = "capitalize";
 ---
 
-<!doctype html>
-<html lang="en">
-  <head>
-    <meta charset="utf-8" />
-    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-    <meta name="viewport" content="width=device-width" />
-    <meta name="generator" content={Astro.generator} />
-    <title>{pageTitle}</title>
-    <style define:vars={{ skillColor, fontWeight, textCase }}>
-      h1 {
-        color: purple;
-        font-size: 4rem;
-      }
+<BaseLayout pageTitle={pageTitle}>
+  <h2>... and my new Astro site.</h2>
 
-      .skill {
-        color: var(--skillColor);
-        font-weight: var(--fontWeight);
-        text-transform: var(--textCase);
-        background-color: black;
-        padding: 0.13rem 0.5rem;
-        margin: 0.1rem;
-        border-radius: 1rem;
-      }
-    </style>
-  </head>
-  <body>
-    <Header />
-    <h1>{pageTitle}</h1>
-    <h2>... and my new Astro site.</h2>
+  <p>
+    I'm working through Astro's introductory tutorial. This is the second page
+    on my website, and it's the first one I built myself!
+  </p>
 
-    <p>
-      I'm working through Astro's introductory tutorial. This is the second page
-      on my website, and it's the first one I built myself!
-    </p>
-
-    <p>Here are a few facts about me:</p>
-    <ul>
-      <li>My name is {identity.firstName}.</li>
-      <li>I live in {identity.country}.</li>
-      {
-        identity.hobbies.length >= 2 && (
-          <li>
-            Two of my hobbies are: {identity.hobbies[0]} and{" "}
-            {identity.hobbies[1]}.
-          </li>
-        )
-      }
-      <li>
-        Some of My skills are: {
-          skills.map((skill) => <span class="skill">{skill}</span>)
-        }
-      </li>
-    </ul>
-    <p>
-      Now go build something great. You may want to use <a
-        href="https://astro.build/">Astro</a
-      >.
-    </p>
-
-    {happy && <p>I am happy to be learning Astro!</p>}
-
-    {finished && <p>I finished this tutorial!</p>}
-
+  <p>Here are a few facts about me:</p>
+  <ul>
+    <li>My name is {identity.firstName}.</li>
+    <li>I live in {identity.country}.</li>
     {
-      goal === 3 ? (
-        <p>My goal is to finish in 3 days. Why? Because i love {goal} 🙃</p>
-      ) : (
-        <p>My goal is not 3 days.</p>
+      identity.hobbies.length >= 2 && (
+        <li>
+          Two of my hobbies are: {identity.hobbies[0]} and {identity.hobbies[1]}
+          .
+        </li>
       )
     }
-  </body>
-</html>
+    <li>
+      Some of My skills are: {
+        skills.map((skill) => <span class="skill">{skill}</span>)
+      }
+    </li>
+  </ul>
+
+  {happy && <p>I am happy to be learning Astro!</p>}
+  {finished && <p>I finished this tutorial!</p>}
+  {
+    goal === 3 ? (
+      <p>My goal is to finish in 3 days. Why? Because i love {goal} 🙃</p>
+    ) : (
+      <p>My goal is not 3 days.</p>
+    )
+  }
+  <p>
+    Now go build something great. You may want to use <a
+      href="https://astro.build/">Astro</a
+    >.
+  </p>
+</BaseLayout>
+
+<style define:vars={{ skillColor, fontWeight, textCase }}>
+  h1 {
+    color: purple;
+    font-size: 2rem;
+  }
+
+  .skill {
+    color: var(--skillColor);
+    font-weight: var(--fontWeight);
+    text-transform: var(--textCase);
+    background-color: black;
+    padding: 0.13rem 0.5rem;
+    margin: 0.1rem;
+    border-radius: 1rem;
+  }
+</style>
