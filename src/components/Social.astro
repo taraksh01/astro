@@ -1,0 +1,42 @@
+---
+const socials = [
+  {
+    name: "Github",
+    url: "https://github.com/taraksh01",
+  },
+  {
+    name: "Twitter",
+    url: "https://twitter.com/taraksh01",
+  },
+  {
+    name: "LinkedIn",
+    url: "https://www.linkedin.com/in/taraksh01/",
+  },
+];
+---
+
+<ul>
+  {
+    socials.map((social) => (
+      <li>
+        <a href={social.url}>{social.name}</a>
+      </li>
+    ))
+  }
+</ul>
+
+<style>
+  ul {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 1rem;
+    padding: 0;
+    margin: 0;
+    list-style: none;
+  }
+  a {
+    text-decoration: none;
+    color: orange;
+  }
+</style>

@@ -1,0 +1,26 @@
+---
+import Social from "./Social.astro";
+const platform = "Github";
+const username = "taraksh01";
+---
+
+<footer>
+  <p>
+    Learn more about my projects on <a
+      href={`https://${platform}.com/${username}`}>{platform}</a
+    >.
+  </p>
+
+  <Social />
+</footer>
+
+<style>
+  footer {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    gap: 1rem;
+    margin-top: 2rem;
+  }
+</style>
