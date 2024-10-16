@@ -63,6 +63,21 @@ h1 {
   display: unset;
 }
 
+.tags{
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+}
+
+.tag{
+  margin:0.25rem;
+  border: 1px dashed #ff9776;
+  padding: 0.2rem 0.5rem;
+  border-radius: 0.5rem;
+  font-size: 1.25rem;
+  background-color: #f8fcfd;
+}
+
 @media screen and (min-width: 636px) {
   .hamburger {
     display: none;
